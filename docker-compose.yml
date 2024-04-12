@@ -1,0 +1,18 @@
+version: '3.1'
+
+networks:
+  discord-bot:
+
+services:
+  node:
+    user: "1000:1000"
+    image: node:18
+    container_name: nodejs_container
+    working_dir: /app
+    volumes:
+      - "./:/app"
+    tty: true
+    ports:
+      - "3000:3000"
+    networks:
+      discord-bot:
